@@ -1,0 +1,17 @@
+name: Simtrace2
+
+windows:
+  - main:
+      layout: tiled
+      panes:
+        - GsmTapCapture:
+          - mkdir -p ~/epdg-logs/$(date -Id)/tcpdump
+          - sudo tcpdump -i lo -w ~/epdg-logs/$(date -Id)/tcpdump/$(date -Is | sed -e 's/://g' -e 's/+/_/')_gsmtap.pcap "port 4729"
+        - WifiCapture:
+          - mkdir -p ~/epdg-logs/$(date -Id)/tcpdump
+          - sudo tcpdump -i wlp2s0b1 -w ~/epdg-logs/$(date -Id)/tcpdump/$(date -Is | sed -e 's/://g' -e 's/+/_/')_wifi_ike-esp.pcap "port 53 or port 500 or port 4500"
+        - SimtraceSniff:
+          - simtrace2-sniff
+        - XfrmStream:
+          - cd ~/epdg-tooling/sa-capture-adb
+          - ./capture_sas.sh
