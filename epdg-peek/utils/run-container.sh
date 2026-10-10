@@ -43,9 +43,9 @@ if docker version >/dev/null 2>&1; then
     --cap-add NET_ADMIN \
     --security-opt apparmor=unconfined \
     --security-opt systempaths=unconfined \
-    "${ADDITIONAL_OPTS}" \
-    ${IMAGE_NAME} \
-    "${AUTO_TEST_SCRIPT:-}"
+    ${ADDITIONAL_OPTS} \
+    "${IMAGE_NAME}" \
+    ${AUTO_TEST_SCRIPT:-}
 else
   echo "Docker is not installed or accessible."
   exit 1
