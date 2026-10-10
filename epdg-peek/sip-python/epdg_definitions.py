@@ -1,0 +1,7 @@
+# Variables provided by Docker entrypoint script
+ENV_P_CSCF_IP = "IMS_PCSCF_IP"
+ENV_OWN_IP = "IPSEC_LOCAL_IP"
+ENV_IMSI = "EPDG_IMSI"
+ENV_MCC = "EPDG_MCC"
+ENV_MNC = "EPDG_MNC"
+ENV_AUTH_STATE_FILE = "AUTH_STATE_FILE"

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+echo "Got VERB='$PLUTO_VERB:$1' with MY_CLIENT='$PLUTO_MY_CLIENT',"
+echo "  SOURCEIP4_1='$PLUTO_MY_SOURCEIP4_1',"
+echo "  SOURCEIP6_1='$PLUTO_MY_SOURCEIP6_1'"
+
+case "$PLUTO_VERB:$1" in
+up-client:|up-client-v6:)
+        ip netns exec ims ip addr flush dev tun23
+        echo "Adding IP/NETMSK $PLUTO_MY_CLIENT to interface tun23"
+        ip netns exec ims ip addr add $PLUTO_MY_CLIENT dev tun23
+        ;;
+down-client:|down-client-v6:)
+        ip netns exec ims ip addr flush dev tun23
+        ;;
+*)
+        echo "unknown verb \`$PLUTO_VERB' or parameter \`$1'" >&2
+        exit 1
+        ;;
+esac
