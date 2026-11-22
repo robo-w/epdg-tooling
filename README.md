@@ -7,7 +7,17 @@ at TU Wien in 2026.
 BibTex citation:
 
 ```text
-tba - not yet published
+@mastersthesis{wittek_automated_2026,
+	author = {Wittek, Robert},
+	title = {Automated {Phreaking}: {Consolidation} of {VoLTE} and {VoWiFi} {Security} {Testing}},
+	url = {https://repositum.tuwien.at/handle/20.500.12708/232364},
+	copyright = {http://rightsstatements.org/vocab/InC/1.0/},
+	doi = {10.34726/hss.2026.139547},
+	language = {en},
+	school = {Technische Universität Wien},
+	year = {2026},
+	address = {Wien},
+}
 ```
 
 ## Structure of the Repository
